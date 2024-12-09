@@ -1,0 +1,216 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: grab;
+}
+html,
+body {
+
+    scroll-behavior: smooth;
+}
+body {
+    background: linear-gradient(120deg, #1e1e1e, #0d0d0d, #1a1a1a);
+    background-size: 400% 400%;
+    animation: backgroundShift 12s infinite alternate;
+    color: #f5f5f5;
+}
+
+@keyframes backgroundShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.navbar {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar a {
+    color: #f5f5f5;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    transition: color 0.6s;
+}
+
+.navbar a:hover {
+    color: #ff0000;
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    color: #ff0000;
+    text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
+}
+
+.navbar a {
+    display: inline-block;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+}
+.navbar a:after {
+    background-color: #ff0000;
+    display: block;
+    content: "";
+    height: 2px;
+    width: 0%;
+    -webkit-transition: width .5s ease-in-out;
+    -moz--transition: width .5s ease-in-out;
+    transition: width .5s ease-in-out;
+}
+.navbar a:hover:after,
+.navbar a:focus:after {
+    width: 100%;
+}
+
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: flicker 3s infinite;
+}
+
+.header h1 {
+    font-family: 'Minecraft', sans-serif;
+                                                
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+    80% { opacity: 0.6; }
+}
+.cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 4rem 2rem;
+}
+
+.card {
+    background-color: rgba(20, 20, 20, 0.8);
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 1rem;
+    width: 300px;
+    color: #ff0000;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    position: relative;
+}
+
+.card:hover {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: filter 0.3s, transform 0.3s;
+    filter: brightness(0.7);
+}
+
+.card img:hover {
+    transform: scale(1.1);
+    filter: brightness(0.5);
+}
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/noisy-net.png');
+    opacity: 0.1;
+    pointer-events: none;
+    animation: noise 0.2s infinite;
+}
+
+@keyframes noise {
+    0% { opacity: 0.15; }
+    50% { opacity: 0.1; }
+    100% { opacity: 0.15; }
+}
+.gallery {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.gallery img {
+    width: 100%;
+    max-width: 200px;
+    margin: 0.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s, filter 0.3s;
+    filter: grayscale(100%);
+}
+
+.gallery img:hover {
+    transform: scale(1.1) rotate(5deg);
+    filter: grayscale(0%);
+}
+.contact-form {
+    padding: 4rem 2rem;
+    background-color: rgba(10, 10, 10, 0.9);
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.contact-form h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #ff0000;
+    animation: flickerText 1.5s infinite alternate;
+}
+
+@keyframes flickerText {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    background-color: #ff0000;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #b30000;
+    transform: scale(1.05);
+}
